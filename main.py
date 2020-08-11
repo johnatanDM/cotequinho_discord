@@ -41,8 +41,19 @@ async def on_message(message):
     msg = 'Seu id é: %s' % message.author.id
     await message.author.send(msg)
 
-  if message.content.startswith('!ola'):
-    msg = 'Olá mundo'
+  if message.content.startswith('!ola') or message.content.startswith('!help') or message.content.startswith('!ajuda'):
+    msg = """Olá, Eu sou o Cotequinho Bot e já sei fazer algumas coisas! \n
+- Você pode pedir Dump para a equipe de Banco de dados assim: \n
+/dump Sistema Ambiente_origem -> Ambiente_destino \n
+- Você pode pedir para o DBA lhe ajudar a criar uma consulta assim: \n
+/sqlhelp Sistema \n
+- Quer uma ajuda pra melhorar uma consulta que já existe? \n
+/slqtune Sistema \n
+- Para solicitar recovery, integração ou acesso a algum banco: \n
+/manutencaobd Descrição \n
+- Você também pode pedir para cadastrar um novo relógio no banco do ponto assim: \n
+/novorelogio 172.123.123.123 URBFOR   
+"""
     await message.channel.send(msg)
 
   if message.content.startswith('!dump'):
