@@ -34,6 +34,7 @@ def conectar():
 @client.event
 async def on_message(message):
   johnatan = client.get_user(239100590276214785) 
+  adolfho = client.get_user(692727946242424883)
   if message.author == client.user:
     return
 
@@ -60,30 +61,35 @@ async def on_message(message):
     msg, msgdba = banco_de_dados.issue_jira_dump(jira('9090'), client, message)
     if msgdba != '':
       await johnatan.send(msgdba)
+      await adolfho.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!novorelogio'):
     msg, msgdba = banco_de_dados.issue_jira_novo_relogio(jira('9090'), client, message)
     if msgdba != '':
       await johnatan.send(msgdba)
+      await adolfho.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!manutencaobd'):
     msg, msgdba = banco_de_dados.issue_jira_manutencaobd(jira('9090'), client, message)
     if msgdba != '':
       await johnatan.send(msgdba)
+      await adolfho.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!sqlhelp'):
     msg, msgdba = banco_de_dados.issue_jira_sqlhelp(jira('9090'), client, message)
     if msgdba != '':
       await johnatan.send(msgdba)
+      await adolfho.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!sqltune'):
     msg, msgdba = banco_de_dados.issue_jira_sqltune(jira('9090'), client, message)
     if msgdba != '':
       await johnatan.send(msgdba)
+      await adolfho.send(msgdba)
     await message.channel.send(msg)
 @client.event
 async def on_ready():
