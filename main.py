@@ -58,31 +58,31 @@ async def on_message(message):
 
   if message.content.startswith('!dump'):
     msg, msgdba = banco_de_dados.issue_jira_dump(jira('9090'), client, message)
-    if msg != '':
+    if msgdba != '':
       await johnatan.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!novorelogio'):
     msg, msgdba = banco_de_dados.issue_jira_novo_relogio(jira('9090'), client, message)
-    if msg != '':
+    if msgdba != '':
       await johnatan.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!manutencaobd'):
     msg, msgdba = banco_de_dados.issue_jira_manutencaobd(jira('9090'), client, message)
-    if msg != '':
+    if msgdba != '':
       await johnatan.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!sqlhelp'):
     msg, msgdba = banco_de_dados.issue_jira_sqlhelp(jira('9090'), client, message)
-    if msg != '':
+    if msgdba != '':
       await johnatan.send(msgdba)
     await message.channel.send(msg)
 
   if message.content.startswith('!sqltune'):
     msg, msgdba = banco_de_dados.issue_jira_sqltune(jira('9090'), client, message)
-    if msg != '':
+    if msgdba != '':
       await johnatan.send(msgdba)
     await message.channel.send(msg)
 @client.event
