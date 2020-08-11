@@ -71,7 +71,7 @@ def issue_jira_sqltune(jira, bot, message):
   atividade = jira.issue_create(fields)
   if atividade:
     msg = ("O DBA já foi avisado e assim que possível irá lhe atender %s." % message.author.mention)
-    msgdba = ("SQLHelp: %s, %s" % (titulo, usuario)) 
+    msgdba = ("SQLTune: %s, %s" % (titulo, usuario)) 
   else:
     msg = atividade
   return msg, msgdba
