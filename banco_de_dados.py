@@ -80,7 +80,7 @@ def issue_jira_manutencaobd(jira, bot, message):
   msg = ''
   msgdba = ''
   titulo = message.content[14:]
-  usuario = message.from_user.first_name + ' ' + (message.from_user.last_name or '')
+  usuario = message.author
   fields = {
       'project': {
           'key': "ADDBDD"
