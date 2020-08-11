@@ -3,9 +3,9 @@ import json
 import requests
 from aiohttp import web
 from banco_de_dados import resposta_jira_dump 
-token = os.getenv("BOT_API_TOKEN")
+token = os.getenv("WEBHOOK")
 lhost = os.getenv("LHOST")
-URL = "https://discordapp.com/api/webhooks/742376894321917983/{}".format(token)
+URL = "https://discordapp.com/api/webhooks/{}".format(token)
 
 async def resposta_dump(request):
     resposta_jira = await request.json()
