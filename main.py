@@ -47,7 +47,7 @@ async def on_message(message):
 - Você pode pedir Dump para a equipe de Banco de dados assim: \n
 !dump Sistema Ambiente_origem -> Ambiente_destino \n
 - Você pode pedir para o DBA lhe ajudar a criar uma consulta assim: \n
-1sqlhelp Sistema \n
+!sqlhelp Sistema \n
 - Quer uma ajuda pra melhorar uma consulta que já existe? \n
 !slqtune Sistema \n
 - Para solicitar recovery, integração ou acesso a algum banco: \n
