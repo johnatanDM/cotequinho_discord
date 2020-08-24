@@ -29,11 +29,11 @@ def jira(porta):
 def conectar():
     con=Conexao(host_database, database, user_database, pass_user_database)
     return con
-    
+    692734511095742535
     
 @client.event
 async def on_message(message):
-  server = client.get_guild(692750846710251561)
+  server = client.get_guild(692734511095742535)
   membro = server.get_member(message.author.id)
   is_lider = (discord.utils.get(membro.roles, name = 'Lider') == discord.utils.get(server.roles, name = 'Lider'))
   johnatan = client.get_user(239100590276214785) 
