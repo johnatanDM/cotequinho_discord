@@ -33,7 +33,7 @@ def conectar():
     
 @client.event
 async def on_message(message):
-  server = client.get_guild(692734511095742535)
+  server = client.get_guild(691616063334514749)
   membro = server.get_member(message.author.id)
   is_lider = (discord.utils.get(membro.roles, name = 'Lider') == discord.utils.get(server.roles, name = 'Lider'))
   johnatan = client.get_user(239100590276214785) 
