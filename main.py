@@ -33,6 +33,10 @@ def conectar():
     
 @client.event
 async def on_message(message):
+  server = client.get_guild(692750846710251561)
+  membro = server.get_member(message.author.id)
+  is_lider = (discord.utils.get(membro.roles, name = 'Lider') == discord.utils.get(server.roles, name = 'Lider'))
+  print(is_lider)
   johnatan = client.get_user(239100590276214785) 
   adolfho = client.get_user(692727946242424883)
   if message.author == client.user:
@@ -58,8 +62,14 @@ async def on_message(message):
     await message.channel.send(msg)
 
   if message.content.startswith('!dump'):
-    msg, msgdba = banco_de_dados.issue_jira_dump(jira('9090'), client, message)
-    if msgdba != '':
+    if is_lider:
+      msg, msgdba = banco_de_dados.issue_jira_dump(jira('9090'), client, message)
+      if msgdba != '':
+        await johnatan.send(msgdba)
+        await adolfho.send(msgdba)
+    else:
+      msg = 'Olá %s! Infelizmente somente os líderes podem pedir dump!' % message.author.mention
+      msgdba = '%s tentou pedir um dump.' %  message.author.mention
       await johnatan.send(msgdba)
       await adolfho.send(msgdba)
     await message.channel.send(msg)
