@@ -7,13 +7,13 @@ def issue_jira_dump(jira, bot, message):
   match = re.match(r'.+ +.+->.+', message.content)
   if match:
       titulo = message.content[6:]
-      usuario = message.author.id
+      usuario = message.author
       fields = {
           'project': {
               'key': "ADDBDD"
           },
-          'summary': 'Dump: %s' % titulo,
-          'customfield_10500': '%s' % usuario,
+          'summary': 'Dump: %s. Solicitado por %s' % (titulo, usuario),
+          'customfield_10500': '%s' % usuario.id,
           'issuetype': {
               'name': "Task"
           }
