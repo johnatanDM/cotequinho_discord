@@ -36,6 +36,7 @@ async def on_message(message):
   server = client.get_guild(691616063334514749)
   membro = server.get_member(message.author.id)
   is_lider = (discord.utils.get(membro.roles, name = 'Lider') == discord.utils.get(server.roles, name = 'Lider'))
+  is_gerente = (discord.utils.get(membro.roles, name = 'Gerente') == discord.utils.get(server.roles, name = 'Gerente'))
   johnatan = client.get_user(239100590276214785) 
   adolfho = client.get_user(692727946242424883)
   if message.author == client.user:
@@ -61,7 +62,7 @@ async def on_message(message):
     await message.channel.send(msg)
 
   if message.content.startswith('!dump'):
-    if is_lider:
+    if is_lider or is_gerente:
       msg, msgdba = banco_de_dados.issue_jira_dump(jira('9090'), client, message)
       if msgdba != '':
         await johnatan.send(msgdba)
