@@ -36,7 +36,6 @@ async def on_message(message):
   server = client.get_guild(692750846710251561)
   membro = server.get_member(message.author.id)
   is_lider = (discord.utils.get(membro.roles, name = 'Lider') == discord.utils.get(server.roles, name = 'Lider'))
-  print(is_lider)
   johnatan = client.get_user(239100590276214785) 
   adolfho = client.get_user(692727946242424883)
   if message.author == client.user:
