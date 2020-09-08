@@ -21,7 +21,7 @@ def issue_jira_dump(jira, bot, message):
       atividade = jira.issue_create(fields)
       if atividade: 
         msg = ("Seu Dump foi registrado no nosso JIRA %s" % message.author.mention)
-        msgdba = ("Dump: %s" % titulo)
+        msgdba = ("Dump: , %s" % (titulo, usuario))
       else: 
         msg = atividade
   else:
@@ -39,8 +39,8 @@ def issue_jira_sqlhelp(jira, bot, message):
       'project': {
           'key': "ADDBDD"
       },
-      'summary': 'SQLHelp: %s' % titulo,
-      'description': '%s' % usuario,
+      'summary': 'SQLHelp: %s' % usuario,
+      'description': '%s' % titulo,
       'issuetype': {
           'name': "Task"
       }
@@ -62,8 +62,8 @@ def issue_jira_sqltune(jira, bot, message):
       'project': {
           'key': "ADDBDD"
       },
-      'summary': 'SQLTune: %s' % titulo,
-      'description': '%s' % usuario,
+      'summary': 'SQLTune: %s' % usuario,
+      'description': '%s' % titulo,
       'issuetype': {
           'name': "Task"
       }
@@ -106,7 +106,7 @@ def issue_jira_novo_relogio(jira, bot, message):
     match = re.match(r'.+(?:\d{1,3}\.){3}\d{1,3}.+', message.content)
     if match:
         titulo = message.content[14:]
-        usuario = message.author.id
+        usuario = message.author
         fields = {
             'project': {
                 'key': "ADDBDD"
@@ -120,7 +120,7 @@ def issue_jira_novo_relogio(jira, bot, message):
         atividade = jira.issue_create(fields)
         if atividade:
           msg = ("Sua requisição foi registrado no nosso JIRA %s" % message.author.mention)
-          msgdba = "Cadastrar IP relógio: %s" % titulo
+          msgdba = ("Cadastrar IP relógio: , %s" % (titulo, usuario))
     else: 
         msg = "IP inválido"
     return msg, msgdba
