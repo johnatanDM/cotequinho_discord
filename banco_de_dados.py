@@ -21,7 +21,7 @@ def issue_jira_dump(jira, bot, message):
       atividade = jira.issue_create(fields)
       if atividade: 
         msg = ("Seu Dump foi registrado no nosso JIRA %s" % message.author.mention)
-        msgdba = ("Dump: , %s" % (titulo, usuario))
+        msgdba = ("Dump: %s. solicitado por %s" % (titulo, usuario))
       else: 
         msg = atividade
   else:
