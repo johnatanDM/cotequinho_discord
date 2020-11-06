@@ -105,7 +105,7 @@ def issue_jira_novo_relogio(jira, bot, message):
     msgdba = ''
     match = re.match(r'.+(?:\d{1,3}\.){3}\d{1,3}.+', message.content)
     if match:
-        titulo = message.content[14:]
+        titulo = message.content[13:]
         usuario = message.author
         fields = {
             'project': {
@@ -120,7 +120,7 @@ def issue_jira_novo_relogio(jira, bot, message):
         atividade = jira.issue_create(fields)
         if atividade:
           msg = ("Sua requisição foi registrado no nosso JIRA %s" % message.author.mention)
-          msgdba = ("Cadastrar IP relógio: , %s" % (titulo, usuario))
+          msgdba = ("Cadastrar IP relógio: %s, %s" % (titulo, usuario))
     else: 
         msg = "IP inválido"
     return msg, msgdba
